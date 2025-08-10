@@ -1,0 +1,55 @@
+/* Minimal clean styling for MVP */
+:root {
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --accent: #0b5fff;
+  --muted: #6b7280;
+  --radius: 12px;
+  --pad: 16px;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,#f7fafc 0%,#f1f5f9 100%);
+  color: #0f172a;
+  margin: 0;
+  padding: 24px;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+header { margin-bottom: 14px; }
+h1 { margin: 0; font-size: 1.6rem; }
+.muted { color: var(--muted); font-size: 0.95rem; }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: var(--pad);
+  box-shadow: 0 6px 18px rgba(12,20,50,0.06);
+}
+.row { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:10px; }
+label { display:flex; flex-direction:column; font-size:0.9rem; }
+input[type="number"], input[type="text"]{
+  padding:8px 10px; border-radius:8px; border:1px solid #e6eef8; width:160px;
+}
+.actions { display:flex; gap:10px; margin-top:10px; }
+button { background:var(--accent); color:white; border:0; padding:10px 14px; border-radius:10px; cursor:pointer; }
+button.muted { background:transparent; color:var(--muted); border:1px solid #e6eef8; }
+
+.placeholder { color: var(--muted); padding: 12px 0; }
+
+#resultsInner table { width:100%; border-collapse:collapse; margin-top:8px; }
+#resultsInner th, #resultsInner td { text-align:left; padding:8px 6px; border-bottom:1px dashed #eef2ff; }
+footer { margin-top:16px; color:var(--muted); font-size:0.85rem; }
+
+@media (max-width: 920px) {
+  .grid { grid-template-columns: 1fr; }
+  input[type="number"], input[type="text"] { width:100%; }
+}
