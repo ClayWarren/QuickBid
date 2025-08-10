@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>QuickBid — MVP</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>QuickBid</h1>
+      <p class="muted">Instant estimates & proposals for small contractors (MVP)</p>
+    </header>
+
+    <main class="grid">
+      <section class="card">
+        <h2>New Estimate</h2>
+        <form id="estimateForm">
+          <div class="row">
+            <label>Width (ft)<input name="width_ft" type="number" step="0.1" value="20" required /></label>
+            <label>Length (ft)<input name="length_ft" type="number" step="0.1" value="30" required /></label>
+            <label>Thickness (in)<input name="thickness_in" type="number" step="0.1" value="4" /></label>
+          </div>
+          <div class="row">
+            <label>Concrete $/yd³<input name="price_per_cy" type="number" step="0.01" value="140" /></label>
+            <label>Rebar $/sqft<input name="rebar_cost_per_sqft" type="number" step="0.01" value="1.25" /></label>
+          </div>
+          <div class="row">
+            <label><input type="checkbox" name="tearout" /> Tearout / demo</label>
+            <label><input type="checkbox" name="generate_proposal" /> Generate proposal (AI)</label>
+          </div>
+          <div class="row">
+            <label>Client name<input name="client_name" /></label>
+          </div>
+          <div class="actions">
+            <button type="submit">Calculate Estimate</button>
+            <button id="refreshRates" type="button" class="muted">Load defaults</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card" id="results">
+        <h2>Estimate results</h2>
+        <div id="resultsInner" class="placeholder">Run an estimate to see a line-item breakdown.</div>
+      </section>
+
+      <section class="card">
+        <h2>Recent estimates</h2>
+        <div id="history">No saved estimates yet.</div>
+      </section>
+
+    </main>
+
+    <footer>
+      <small>QuickBid MVP — change defaults in code or add .env to enable AI proposal generation.</small>
+    </footer>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
